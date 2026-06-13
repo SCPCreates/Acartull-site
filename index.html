@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ACartFull — Fill Your Cart for Less. Feed Your Neighbors.</title>
+  <title>ACartFull — Fill Your Cart for Less. Help feed Your Neighbors.</title>
   <meta name="description" content="ACartFull builds your weekly shopping cart around your budget, finds the best deals at stores near you, and helps feed your neighbors too." />
 
   <!-- Fonts -->
@@ -604,11 +604,11 @@
     <h1 class="hero-headline">
       Fill your cart<br>
       <span class="accent">for less.</span><br>
-      Feed your neighbors.
+      Help feed your neighbors.
     </h1>
 
     <p class="hero-sub">
-      Tell us your budget. We find this week's best deals across ALDI, Market Basket, Stop &amp; Shop, and more — then build your cart automatically. Save money, share kindness.
+      Tell us your budget. We find this week's best deals across ALDI, Market Basket, Stop &amp; Shop, and more, then build your cart automatically. Save money, share kindness.
     </p>
 
     <div class="hero-cta-group">
@@ -712,7 +712,7 @@
         <div class="feature-card reveal">
           <div class="feature-icon">📊</div>
           <h3>Store price comparison</h3>
-          <p>See your exact cart total at ALDI, Market Basket, Stop &amp; Shop, ShopRite, and more — side by side, sorted cheapest first.</p>
+          <p>See your exact cart total at ALDI, Market Basket, Stop &amp; Shop, ShopRite, and more, side by side, sorted cheapest first.</p>
         </div>
         <div class="feature-card reveal">
           <div class="feature-icon">📈</div>
@@ -732,7 +732,7 @@
         <div class="feature-card reveal">
           <div class="feature-icon">🗺️</div>
           <h3>Community resources</h3>
-          <p>Nearby food pantries, community fridges, WIC sites, and SNAP enrollment offices — all on one map, always up to date.</p>
+          <p>Nearby food pantries, community fridges, WIC sites, and SNAP enrollment offices; all on one map, always up to date.</p>
         </div>
       </div>
     </div>
@@ -809,25 +809,27 @@
         <div class="section-eyebrow">Early access</div>
         <h2 class="section-title">Be first to shop smarter</h2>
         <p class="section-sub">
-          ACartFull launches soon on iOS and Android. Join the list and we'll let you know the moment it's ready — plus get 3 months free of any premium features we add.
+          ACartFull launches soon on iOS and Android. Join the list and we'll let you know the moment it's ready, plus get 3 months free of any premium features we add.
         </p>
       </div>
 
-      <form class="email-form reveal" id="signup-form" onsubmit="handleSignup(event)">
+      <form class="email-form reveal" action="https://preview.mailerlite.io/forms/2429749/190114113651738491/share" method="POST">
         <input
           class="email-input"
           type="email"
-          id="email-input"
+          name="fields[email]"
           placeholder="your@email.com"
           required
           autocomplete="email"
         />
-        <button type="submit" class="btn-primary">Get Early Access</button>
+        <input type="hidden" name="ml-submit" value="1" />
+	<input type="hidden" name="anticsrf" value="true" />
+	<button type="submit" class="btn-primary">Get Early Access</button>
       </form>
 
       <div class="success-msg" id="success-msg" role="alert">
-        ✅ You're on the list! We'll be in touch soon.
-      </div>
+ 	 ✅ You're on the list! We'll notify you the moment ACartFull launches, plus you'll get first access to any premium features we add. 	Thank you for your support! 🛒
+	</div>
 
       <p class="form-note reveal">No spam. Unsubscribe anytime. Your email stays private.</p>
     </div>
@@ -842,7 +844,7 @@
       <a href="privacy.html">Privacy Policy</a>
       <a href="terms.html">Terms of Service</a>
       <a href="mailto:contact@acartfull.com">Contact</a>
-      <a href="#">Support</a>
+      <a href="mailto:support@acartfull.com">Support</a>
     </div>
     <div class="footer-copy">
       © 2025 ACartFull Inc. All rights reserved. Made with ❤️ for your community.
