@@ -580,6 +580,16 @@
       .hero-headline .accent::after { animation: none; width: 100%; }
     }
   </style>
+ <!-- MailerLite Universal -->
+  <script>
+      (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
+      .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
+      n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
+      (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+      ml('account', '2429749');
+  </script>
+  <!-- End MailerLite Universal -->
+
 </head>
 
 <body>
@@ -813,26 +823,25 @@
         </p>
       </div>
 
-      <form class="email-form reveal" id="signup-form" onsubmit="handleSignup(event)">
-        <input
-          class="email-input"
-          type="email"
-          id="email-input"
-          placeholder="your@email.com"
-          required
-          autocomplete="email"
-        />
-       	<button type="submit" class="btn-primary">Get Early Access</button>
-      </form>
+      <div class="email-form reveal">
+  
+    class="btn-primary"
+    href="https://preview.mailerlite.io/forms/2429749/190114113651738491/share"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    Get Early Access
+  </a>
+</div>
 
       <div class="success-msg" id="success-msg" role="alert">
  	 ✅ You're on the list! We'll notify you the moment ACartFull launches, plus you'll get first access to any premium features we add. 	Thank you for your support! 🛒
 	</div>
+<div class="ml-embedded" data-form="c6xY8X"></div>
 
       <p class="form-note reveal">No spam. Unsubscribe anytime. Your email stays private.</p>
     </div>
   </section>
-
 
   <!-- Footer -->
   <footer>
@@ -872,54 +881,8 @@
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
     // ── Email signup ───────────────────────────────────────────────
-   function handleSignup(e) {
-      e.preventDefault();
-      const email = document.getElementById('email-input').value;
-      const form = document.getElementById('signup-form');
-      const success = document.getElementById('success-msg');
-      const button = form.querySelector('button[type="submit"]');
-
-      button.textContent = 'Signing you up...';
-      button.disabled = true;
-
-      const url = `https://assets.mailerlite.com/jsonp/2429749/forms/190114113651738491/subscribe?fields[email]=${encodeURIComponent(email)}&ml-submit=1&anticsrf=true&callback=mlCallback`;
-
-      window.mlCallback = function(response) {
-        if (response && response.success) {
-          form.style.display = 'none';
-          success.style.display = 'block';
-        } else {
-          button.textContent = 'Get Early Access';
-          button.disabled = false;
-          alert('Something went wrong. Please try again.');
-        }
-        delete window.mlCallback;
-        document.getElementById('ml-script')?.remove();
-      };
-
-      const script = document.createElement('script');
-      script.id = 'ml-script';
-      script.src = url;
-      script.onerror = function() {
-        button.textContent = 'Get Early Access';
-        button.disabled = false;
-        alert('Connection error. Please try again.');
-        delete window.mlCallback;
-      };
-      document.body.appendChild(script);
-    }
 
   </script>
-
-  <!-- MailerLite Universal -->
-  <script>
-      (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
-      .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
-      n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
-      (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
-      ml('account', '2429749');
-  </script>
-  <!-- End MailerLite Universal -->
 
 </body>
 </html>
