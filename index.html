@@ -885,42 +885,40 @@
 
     // ── Email signup ─────────────────────────────────────────────
     function handleSignup(e) {
-      e.preventDefault();
-      const email = document.getElementById('email-input').value;
-      const form = document.getElementById('signup-form');
-      const success = document.getElementById('success-msg');
-      const button = form.querySelector('button[type="submit"]');
+  e.preventDefault();
+  const email = document.getElementById('email-input').value;
+  const form = document.getElementById('signup-form');
+  const success = document.getElementById('success-msg');
+  const button = form.querySelector('button[type="submit"]');
 
-      button.textContent = 'Signing you up...';
-      button.disabled = true;
+  button.textContent = 'Signing you up...';
+  button.disabled = true;
 
-      // MailerLite JSONP
-      const url = `https://assets.mailerlite.com/jsonp/2429749/forms/190114113651738491/subscribe?fields[email]=${encodeURIComponent(email)}&ml-submit=1&anticsrf=true&callback=mlCallback`;
+  // Use fetch with no-cors since MailerLite blocks CORS
+  // We show success after a short delay since we can't read the response
+  const formData = new FormData();
+  formData.append('fields[email]', email);
+  formData.append('ml-submit', '1');
+  formData.append('anticsrf', 'true');
 
-      window.mlCallback = function(response) {
-        if (response && response.success) {
-          form.style.display = 'none';
-          success.style.display = 'block';
-        } else {
-          button.textContent = 'Get Early Access';
-          button.disabled = false;
-          alert('Something went wrong. Please try again.');
-        }
-        delete window.mlCallback;
-        document.getElementById('ml-script')?.remove();
-      };
-
-      const script = document.createElement('script');
-      script.id = 'ml-script';
-      script.src = url;
-      script.onerror = function() {
-        button.textContent = 'Get Early Access';
-        button.disabled = false;
-        alert('Connection error. Please try again.');
-        delete window.mlCallback;
-      };
-      document.body.appendChild(script);
-    }
+  fetch('https://assets.mailerlite.com/jsonp/2429749/forms/190114113651738491/subscribe', {
+    method: 'POST',
+    mode: 'no-cors',
+    body: formData,
+  })
+  .then(() => {
+    // no-cors means we can't read the response
+    // but if we get here without an error the request went through
+    form.style.display = 'none';
+    success.style.display = 'block';
+  })
+  .catch(() => {
+    // Network error
+    button.textContent = 'Get Early Access';
+    button.disabled = false;
+    alert('Connection error. Please try again.');
+  });
+}
   </script>
 
   <!-- MailerLite Universal -->
